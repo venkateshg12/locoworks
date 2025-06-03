@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "FreightBigPro";
+    src: url("/fonts/FreightBigProLight-Regular.ttf")format("truetype");
+}
+
+@font-face {
+    font-family: "HelveticaNowDisplay";
+    src: url("/fonts/HelveticaNowDisplay-Regular.ttf")format("truetype");
+}
+
+@font-face {
+    font-family: "HelveticaNowDisplayMedium";
+    src: url("/font/HelveticaNowDisplay-Medium.ttf")format("truetype");
+}
+
+@font-face {
+    font-family: "Neue Montreal";
+    src: url("/fonts/NeueMontreal-Regular.ttf")format("truetype");
+}
+
+.font-montreal {
+    font-family: "Neue Montreal";
+}
+
+.font-freightbig {
+    font-family: "FreightBigPro";
+}
+
+.font-helvetica {
+    font-family: "HelveticaNowDisplay";
+}
+
+.font-helveticamedium {
+    font-family: "HelveticaNowDisplayMedium";
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+    .maincss {
+        @apply font-freightbig flex min-h-screen items-center justify-center  xl:text-7xl text-center   font-bold md:font-normal  md:text-[4rem] 2xl:text-[5vw] text-[7vw] ;
+    }
+}
