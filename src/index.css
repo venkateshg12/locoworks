@@ -37,18 +37,61 @@
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    background-color: black;
 }
 
 @layer utilities {
-    .maincss {
-        @apply font-freightbig flex min-h-screen items-center justify-center  xl:text-7xl text-center   font-bold md:font-normal  md:text-[4rem] 2xl:text-[5vw] text-[7vw] ;
+    .ptext {
+        @apply text-[3rem] md:text-[6rem] 2xl:text-[9rem] uppercase z-20 relative lg:leading-[6.6rem] 2xl:leading-[9.5rem] transform  ;
+    }
+
+    .moving {
+        @apply bg-amber-300  whitespace-nowrap overflow-hidden  md:-my-1 absolute top-[50%] transform -translate-y-[30%] md:translate-y-[-25%]  z-0;
+
+    }
+
+    .movingin {
+        @apply inline-block uppercase font-semibold overflow-hidden;
+        animation: move 18s linear infinite;
+
+    }
+
+    .movingintext {
+        @apply text-black text-[0.6rem] md:text-[1rem] inline-block mr-5 md:py-1;
+
+    }
+    .blur {
+        @apply absolute  w-[50%] left-[50%] h-[100%] -translate-x-[50%] bg-amber-300 z-20 backdrop-blur-3xl ;
+        background: linear-gradient(to right, #f5e31bf0, #F5E41B, #f5e31bf6);
+        box-shadow: 10px 0 20px 20px #F5E41B, -10px 0 20px 100px #F5E41B;
+
+    }
+   
+}
+
+@keyframes move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
     }
 }
+
+/* .elem:hover .moving {
+    opacity: 1;
+    transform: scaleY(1);
+} */

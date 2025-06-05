@@ -1,11 +1,15 @@
 import MainPage from './components/MainPage';
 import Page1 from './components/Page1';
+import LocomotiveScroll from 'locomotive-scroll';
+import Page2 from './Page2';
 
 const App = () => {
+  const locomotive = new LocomotiveScroll();
   return (
     <div>
-      {/* <Page1 /> */}
       <MainPage />
+      <Page1 />
+      <Page2 />
     </div>
   )
 }

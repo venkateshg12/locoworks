@@ -1,7 +1,12 @@
-import { useState } from "react";
+import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
 
 export const navlinks: string[] = ["PROJECTS", "ABOUT", "STUDIES", "STORE"];
-
+export const img1 = "https://plus.unsplash.com/premium_photo-1661780784016-84df03d7d8a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y29udmVyc2V8ZW58MHx8MHx8fDA%3D";
+export const img2 = "https://images.unsplash.com/photo-1480099225005-2513c8947aec?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cnVnYnklMjBwbGF5ZXJ8ZW58MHx8MHx8fDA%3D";
+export const img3 = "https://images.unsplash.com/photo-1612863725124-920bba0cfff9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWluZXJhbCUyMGZydWl0cyUyMGZhY2UlMjBjcmVhbXN8ZW58MHx8MHx8fDA%3D";
+export const img4 = "https://images.unsplash.com/photo-1576266394503-4999348b5447?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvdG8lMjBnYWxsZXJ5fGVufDB8fDB8fHww";
+export const img5 = "https://images.unsplash.com/photo-1529976961-17e52d247c69?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmV5b25jZXxlbnwwfHwwfHx8MA%3D%3D";
 
 
 export const Logo = ({ className }: { className?: string }) => {
@@ -92,15 +97,86 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
 
 export default HamburgerMenu;
 
-export const PageContent = ({className} : {className? : string}) => {
+export const PageContent = ({ className }: { className?: string }) => {
   return (
     <>
-      <div className={`font-freightbig flex min-h-screen items-center justify-center  xl:text-7xl text-center   font-bold md:font-normal  md:text-[4rem] 2xl:text-[5vw] text-[7vw] ${className || 'text-black'} `}>
+      <div className={`font-freightbig  flex min-h-screen items-center justify-center  xl:text-7xl text-center   font-bold md:font-normal  md:text-[4rem] 2xl:text-[5vw] text-[7vw] ${className || 'text-black'} `}>
         <h1>
           CREATIVE PROFESSIONALS <br /><em>DEDICATED</em>
           TO CULTURAL <br /> ADVANCEMENT THROUGH
           <br /><em>STRATEGY</em>AND <em>DESIGN</em>
         </h1>
+      </div>
+    </>
+  )
+}
+
+
+export const YellowBanner = () => {
+  return (
+    <div className="movingin group-hover:text-black">
+      {Array(10).fill(
+        <>
+          <h5 className="movingintext">Branding and identity</h5>
+          <h5 className="movingintext">Art direction</h5>
+          <h5 className="movingintext">Type design</h5>
+          <h5 className="movingintext">Creative</h5>
+          <h5 className="movingintext">Digital design</h5>
+        </>
+      )}
+    </div>
+  );
+};
+
+type textProps = {
+  trtext?: string;
+  dataimg?: string;
+}
+
+
+export const Text = ({ trtext, dataimg }: textProps) => {
+
+  const elemRef = useRef<HTMLDivElement>(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (dataimg) {
+      const img = new Image();
+      img.onload = () => setImageLoaded(true);
+      img.src = dataimg;
+    }
+  }, [dataimg]);
+
+  useEffect(() => {
+    const page1 = document.querySelector(".page1");
+
+    const handleMouseEnter = () => {
+      if (page1 && dataimg) {
+        gsap.to(page1, {
+          backgroundImage: `url(${dataimg})`,
+          duration: 0.2,
+          ease: "power2.out",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        });
+      }
+    };
+
+    const el = elemRef.current;
+    el?.addEventListener("mouseenter", handleMouseEnter);
+    return () => {
+      el?.removeEventListener("mouseenter", handleMouseEnter);
+    };
+  }, [dataimg, imageLoaded]);
+
+  return (
+    <>
+      <div className="elem group relative overflow-hidden w-full cursor-pointer" data-img={dataimg}>
+        <h2 ref={elemRef} className="font-freightbig ptext cursor-pointer  group-hover:-skew-x-16">{trtext}</h2>
+        <div className="moving group-hover:opacity-100  w-full opacity-0  scale-y-0 group-hover:scale-y-100 duration-500">
+          <div className="blur"></div>
+          <YellowBanner />
+        </div>
       </div>
     </>
   )
