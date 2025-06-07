@@ -2,12 +2,24 @@ import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 
 export const navlinks: string[] = ["PROJECTS", "ABOUT", "STUDIES", "STORE"];
+
 export const img1 = "https://plus.unsplash.com/premium_photo-1661780784016-84df03d7d8a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y29udmVyc2V8ZW58MHx8MHx8fDA%3D";
 export const img2 = "https://images.unsplash.com/photo-1480099225005-2513c8947aec?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cnVnYnklMjBwbGF5ZXJ8ZW58MHx8MHx8fDA%3D";
 export const img3 = "https://images.unsplash.com/photo-1612863725124-920bba0cfff9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWluZXJhbCUyMGZydWl0cyUyMGZhY2UlMjBjcmVhbXN8ZW58MHx8MHx8fDA%3D";
 export const img4 = "https://images.unsplash.com/photo-1576266394503-4999348b5447?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvdG8lMjBnYWxsZXJ5fGVufDB8fDB8fHww";
 export const img5 = "https://images.unsplash.com/photo-1529976961-17e52d247c69?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmV5b25jZXxlbnwwfHwwfHx8MA%3D%3D";
-
+export const img6 = "https://images.unsplash.com/photo-1748274048033-6a5644a270ec?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0MXx8fGVufDB8fHx8fA%3D%3D";
+export const img7 = "https://images.unsplash.com/photo-1747134392167-7b16ac9c3c36?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0NHx8fGVufDB8fHx8fA%3D%3D";
+export const img8 = "https://images.unsplash.com/photo-1748959116800-a0ae76a84b2d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1MXx8fGVufDB8fHx8fA%3D%3D"
+export const img9 = "https://images.pexels.com/photos/31712146/pexels-photo-31712146/free-photo-of-colorful-residential-buildings-in-lisbon-portugal.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load";
+export const img10 = "https://images.pexels.com/photos/32414131/pexels-photo-32414131/free-photo-of-cozy-relaxed-moment-in-yellow-tones.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load";
+export const img11 = "https://images.pexels.com/photos/7408200/pexels-photo-7408200.png?auto=compress&cs=tinysrgb&w=600&lazy=load";
+export const img12 = "https://images.pexels.com/photos/22020981/pexels-photo-22020981/free-photo-of-photo-of-small-huts-under-a-clear-sky.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load";
+export const img13 = "https://images.unsplash.com/photo-1748989431676-331a3926ef85?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2MXx8fGVufDB8fHx8fA%3D%3D";
+export const img14 = "https://plus.unsplash.com/premium_photo-1748961351465-6f5b51c15544?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMjJ8fHxlbnwwfHx8fHw%3D";
+export const img15 = "https://images.unsplash.com/photo-1747573285214-b6a4246ee727?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNDB8fHxlbnwwfHx8fHw%3D"
+export const img16 = "https://images.pexels.com/photos/31467865/pexels-photo-31467865/free-photo-of-traditional-scottish-bagpipe-band-outdoors.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load";
+export const img17 = "https://images.pexels.com/photos/18611201/pexels-photo-18611201/free-photo-of-wagon-of-metro-train.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load";
 
 export const Logo = ({ className }: { className?: string }) => {
   return (
@@ -114,7 +126,7 @@ export const PageContent = ({ className }: { className?: string }) => {
 
 export const YellowBanner = () => {
   return (
-    <div className="movingin group-hover:text-black">
+    <div className="movingin">
       {Array(10).fill(
         <>
           <h5 className="movingintext">Branding and identity</h5>
@@ -172,10 +184,34 @@ export const Text = ({ trtext, dataimg }: textProps) => {
   return (
     <>
       <div className="elem group relative overflow-hidden w-full cursor-pointer" data-img={dataimg}>
-        <h2 ref={elemRef} className="font-freightbig ptext cursor-pointer  group-hover:-skew-x-16">{trtext}</h2>
+        <h2 ref={elemRef} className="font-freightbig ptext cursor-pointer group-hover:text-black  group-hover:-skew-x-16">{trtext}</h2>
         <div className="moving group-hover:opacity-100  w-full opacity-0  scale-y-0 group-hover:scale-y-100 duration-500">
           <div className="blur"></div>
           <YellowBanner />
+        </div>
+      </div>
+    </>
+  )
+}
+
+type props = {
+  img: string,
+  text1: string,
+  text2?: string,
+  className?: string,
+}
+export const ImageContainer = ({ img, text1, text2, className }: props) => {
+  return (
+    <>
+      <div className="image-container group">
+        <div className={`overlay font-helvetica group-hover:opacity-100 opacity-0 ${className || ' '} `}>
+          <p >{text1}
+            <br />
+            <em>{text2 || ' '}</em>
+          </p>
+        </div>
+        <div className="image">
+          <img src={img} alt="" className="img" />
         </div>
       </div>
     </>

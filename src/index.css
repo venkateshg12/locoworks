@@ -49,7 +49,7 @@
 }
 
 body {
-    background-color: black;
+    background-color: white;
 }
 
 @layer utilities {
@@ -73,12 +73,27 @@ body {
 
     }
     .blur {
-        @apply absolute  w-[50%] left-[50%] h-[100%] -translate-x-[50%] bg-amber-300 z-20 backdrop-blur-3xl ;
+        @apply absolute  w-[37%] left-[50%] h-[100%] -translate-x-[50%] bg-amber-300 z-20 backdrop-blur-3xl ;
         background: linear-gradient(to right, #f5e31bf0, #F5E41B, #f5e31bf6);
         box-shadow: 10px 0 20px 20px #F5E41B, -10px 0 20px 100px #F5E41B;
+    }
+    .image-container{
+        @apply relative w-full h-full overflow-hidden cursor-pointer ;
 
     }
-   
+    .overlay {
+        @apply h-full w-full bg-black  absolute flex items-center justify-center rounded-xl  uppercase text-[3vw] lg:text-[2vw] text-center text-white;
+        transition: all ease 0.5s;
+        transition-delay: 0.2s;
+    }
+    .image {
+        @apply lg:w-[32vw] w-[47vw] h-[65vw] lg:h-[40vw] 2xl:w-[23vw] 2xl:h-[30vw];
+    }
+    .img {
+        @apply w-full h-full object-cover object-center rounded-3xl ;
+        transition: all ease 0.5s;
+
+    }
 }
 
 @keyframes move {
