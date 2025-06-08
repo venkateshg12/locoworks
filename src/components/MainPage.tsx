@@ -60,7 +60,7 @@ function MainPage() {
           </div>
         </div>
         <div className="mainContent">
-          <div className="left-0 right-0 top-0 fixed z-0">
+          <div className="left-0 right-0 top-0 fixed z-50">
             <Navbar />
           </div>
           <div className="text1 relative">

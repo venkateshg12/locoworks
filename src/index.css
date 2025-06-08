@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @font-face {
     font-family: "FreightBigPro";
     src: url("/fonts/FreightBigProLight-Regular.ttf")format("truetype");
@@ -54,11 +55,11 @@ body {
 
 @layer utilities {
     .ptext {
-        @apply text-[3rem] md:text-[6rem] 2xl:text-[9rem] uppercase z-20 relative lg:leading-[6.6rem] 2xl:leading-[9.5rem] transform  ;
+        @apply text-[3rem] md:text-[6rem] 2xl:text-[9rem] uppercase z-20 relative lg:leading-[6.6rem] 2xl:leading-[9.5rem] transform;
     }
 
     .moving {
-        @apply bg-amber-300  whitespace-nowrap overflow-hidden  md:-my-1 absolute top-[50%] transform -translate-y-[30%] md:translate-y-[-25%]  z-0;
+        @apply bg-amber-300 whitespace-nowrap overflow-hidden md:-my-1 absolute top-[50%] transform -translate-y-[30%] md:translate-y-[-25%] z-0;
 
     }
 
@@ -72,28 +73,38 @@ body {
         @apply text-black text-[0.6rem] md:text-[1rem] inline-block mr-5 md:py-1;
 
     }
+
     .blur {
-        @apply absolute  w-[37%] left-[50%] h-[100%] -translate-x-[50%] bg-amber-300 z-20 backdrop-blur-3xl ;
+        @apply absolute w-[37%] left-[50%] h-[100%] -translate-x-[50%] bg-amber-300 z-20 backdrop-blur-3xl;
         background: linear-gradient(to right, #f5e31bf0, #F5E41B, #f5e31bf6);
         box-shadow: 10px 0 20px 20px #F5E41B, -10px 0 20px 100px #F5E41B;
     }
-    .image-container{
-        @apply relative w-full h-full overflow-hidden cursor-pointer ;
+
+    .image-container {
+        @apply relative w-full h-full overflow-hidden cursor-pointer;
 
     }
+
     .overlay {
-        @apply h-full w-full bg-black  absolute flex items-center justify-center rounded-xl  uppercase text-[3vw] lg:text-[2vw] text-center text-white;
+        @apply h-full w-full bg-black absolute flex items-center justify-center rounded-xl uppercase text-[3vw] lg:text-[2vw] text-center text-white;
         transition: all ease 0.5s;
-        transition-delay: 0.2s;
+        transition-delay: 0.4s;
     }
-    .image {
-        @apply lg:w-[32vw] w-[47vw] h-[65vw] lg:h-[40vw] 2xl:w-[23vw] 2xl:h-[30vw];
-    }
+
     .img {
-        @apply w-full h-full object-cover object-center rounded-3xl ;
+        @apply w-full h-full object-cover object-center rounded-3xl;
         transition: all ease 0.5s;
 
+    } 
+
+    .img-container {
+        @apply rounded-3xl  flex items-center justify-center text-white font-bold relative overflow-hidden cursor-pointer;
     }
+}
+
+.image img:hover {
+    transition:  all ease 0.1s;
+    transform: scale(1.05); 
 }
 
 @keyframes move {

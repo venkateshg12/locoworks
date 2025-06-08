@@ -20,6 +20,12 @@ export const img14 = "https://plus.unsplash.com/premium_photo-1748961351465-6f5b
 export const img15 = "https://images.unsplash.com/photo-1747573285214-b6a4246ee727?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNDB8fHxlbnwwfHx8fHw%3D"
 export const img16 = "https://images.pexels.com/photos/31467865/pexels-photo-31467865/free-photo-of-traditional-scottish-bagpipe-band-outdoors.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load";
 export const img17 = "https://images.pexels.com/photos/18611201/pexels-photo-18611201/free-photo-of-wagon-of-metro-train.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load";
+export const img18 = "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=300";
+export const img19 = "https://images.pexels.com/photos/1420440/pexels-photo-1420440.jpeg?auto=compress&cs=tinysrgb&w=300";
+export const img20 = "https://images.pexels.com/photos/1723637/pexels-photo-1723637.jpeg?auto=compress&cs=tinysrgb&w=300";
+export const img21 = "https://images.pexels.com/photos/212324/pexels-photo-212324.jpeg?auto=compress&cs=tinysrgb&w=300";
+export const img22 = "https://images.pexels.com/photos/1367105/pexels-photo-1367105.jpeg?auto=compress&cs=tinysrgb&w=300";
+
 
 export const Logo = ({ className }: { className?: string }) => {
   return (
@@ -149,21 +155,63 @@ type textProps = {
 export const Text = ({ trtext, dataimg }: textProps) => {
 
   const elemRef = useRef<HTMLDivElement>(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  // const elemRef = useRef<HTMLDivElement>(null);
+  const [imageStatus, setImageStatus] = useState<'loading' | 'loaded' | 'error'>('loading');
+  // const [imageLoaded, setImageLoaded] = useState(false);
+
+  /* useEffect(() => {
+     if (dataimg) {
+       const img = new Image();
+       img.onload = () => setImageLoaded(true);
+       img.src = dataimg;
+     }
+   }, [dataimg]);
+ 
+   useEffect(() => {
+     const page1 = document.querySelector(".page1");
+ 
+     const handleMouseEnter = () => {
+       if (page1 && dataimg) {
+         gsap.to(page1, {
+           backgroundImage: `url(${dataimg})`,
+           duration: 0.2,
+           ease: "power2.out",
+           backgroundSize: "cover",
+           backgroundPosition: "center",
+         });
+       }
+     };
+ 
+     const el = elemRef.current;
+     el?.addEventListener("mouseenter", handleMouseEnter);
+     return () => {
+       el?.removeEventListener("mouseenter", handleMouseEnter);
+     };
+   }, [dataimg, imageLoaded]);*/
 
   useEffect(() => {
-    if (dataimg) {
-      const img = new Image();
-      img.onload = () => setImageLoaded(true);
-      img.src = dataimg;
+    if (!dataimg) {
+      setImageStatus('error');
+      return;
     }
+
+    const img = new Image();
+
+    img.onload = () => setImageStatus('loaded');
+    img.onerror = () => setImageStatus('error');
+
+    img.src = dataimg;
   }, [dataimg]);
 
+  // Apply background on hover effect
   useEffect(() => {
     const page1 = document.querySelector(".page1");
 
-    const handleMouseEnter = () => {
-      if (page1 && dataimg) {
+    const applyBackground = () => {
+      if (!page1 || !dataimg) return;
+
+      if (imageStatus === 'loaded') {
+        // Apply successful background
         gsap.to(page1, {
           backgroundImage: `url(${dataimg})`,
           duration: 0.2,
@@ -171,15 +219,38 @@ export const Text = ({ trtext, dataimg }: textProps) => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         });
+      } else if (imageStatus === 'error') {
+        // Apply error background
+        gsap.to(page1, {
+          backgroundImage: 'none',
+          backgroundColor: '#000',
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      }
+    };
+
+    const clearBackground = () => {
+      if (page1) {
+        gsap.to(page1, {
+          backgroundImage: 'none',
+          backgroundColor: '#000',
+          duration: 0.2,
+          ease: "power2.out",
+        });
       }
     };
 
     const el = elemRef.current;
-    el?.addEventListener("mouseenter", handleMouseEnter);
+    el?.addEventListener("mouseenter", applyBackground);
+    el?.addEventListener("mouseleave", clearBackground);
+
     return () => {
-      el?.removeEventListener("mouseenter", handleMouseEnter);
+      el?.removeEventListener("mouseenter", applyBackground);
+      el?.removeEventListener("mouseleave", clearBackground);
     };
-  }, [dataimg, imageLoaded]);
+  }, [dataimg, imageStatus]);
+
 
   return (
     <>
@@ -198,20 +269,36 @@ type props = {
   img: string,
   text1: string,
   text2?: string,
+  rowSpan?: number,
   className?: string,
 }
 export const ImageContainer = ({ img, text1, text2, className }: props) => {
   return (
     <>
-      <div className="image-container group">
-        <div className={`overlay font-helvetica group-hover:opacity-100 opacity-0 ${className || ' '} `}>
+      <div className={`img-container  rounded-xl group ${className || ' '} `}>
+        <div className="overlay  font-helvetica group-hover:opacity-100 opacity-0  rounded-xl ">
           <p >{text1}
             <br />
             <em>{text2 || ' '}</em>
           </p>
         </div>
-        <div className="image">
-          <img src={img} alt="" className="img" />
+        <div className="w-full h-full">
+          {/* <img src={img} alt="" className={`img  rounded-xl`} onError={(e) => e.currentTarget.src = } /> */}
+          <img
+            src={img}
+            alt=""
+            className={`img rounded-xl`}
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              e.currentTarget.nextElementSibling.style.display = 'flex';
+            }}
+          />
+          <div
+            className="img rounded-xl bg-gray-200 flex items-center justify-center text-gray-500"
+            style={{ display: 'none' }}
+          >
+            No Image
+          </div>
         </div>
       </div>
     </>
