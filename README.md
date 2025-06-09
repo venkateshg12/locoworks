@@ -4,7 +4,7 @@ This Project is mainly focused on the UI and animations.
 
 ## Tech Stack
 
-**React** **+** **Typescript**
+**React** **+** **Typescript**  
 **Locomotive Scroll** : For scroll basing animaitons  
 **GSAP** : for animations:
 
