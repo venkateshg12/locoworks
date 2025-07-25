@@ -29,6 +29,23 @@ const Page2 = () => {
                         <ImageContainer img={img20} text1='Star dust' text2='in her veins' className='row-span-4 md:row-span-4 lg:row-span-5 2xl:row-span-5 ' />
                         <ImageContainer img={img21} text1='floating in the' text2='in - between' className='row-span-4 md:row-span-3 lg:row-span-2 2xl:row-span-3 ' />
                         <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+
+
+
+
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
+                        <ImageContainer img={img22} text1='shot through' text2='lens of wonder' className='row-span-4 md:row-span-4 lg:row-span-4 2xl:row-span-3 ' />
                     </div>
                 </div>
             </div>
